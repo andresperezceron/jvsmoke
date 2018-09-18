@@ -20,7 +20,7 @@ public class Conexion {
      * Constructor de Conexion.
      * @param Url cadena para la conexion con la db.
      */
-    public Conexion(String Url) {
+    Conexion(String Url) {
         try {
             connection = DriverManager.getConnection(Url);
             System.out.println("Conectado");

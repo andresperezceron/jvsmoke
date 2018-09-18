@@ -8,11 +8,12 @@ import java.awt.*;
 /**
  * Proporciona componentes de la libreria de JSwing ya creados.
  * Para ulilizar esta clase se han de quitar los layout del JFrame.
- * Todos los metodos sus metodos son estaticos.
+ * Todos sus metodos son estaticos.
  */
 public class ComFactory {
 
     /**
+     * Se ulitiza el componente JLabel para poner cualquier imagen en el JFrame.
      * @param bounds rectangulo que forma las dimensiones del componente en el Frame.
      * @param ruta_img ruta de del archivo .png
      * @return JLabel con la imagen de fondo y con el borde negro.

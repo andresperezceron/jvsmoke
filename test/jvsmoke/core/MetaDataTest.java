@@ -13,23 +13,24 @@ class MetaDataTest {
     private MetaDataTest() {
         JvsConfig.SQLITE3_STR_CONEXION  = "jdbc:sqlite:D:/Programacion/Sqlite/jvsmoketest.db";
         Conexion conexion = Singleton.getConexion();
-        meta = new MetaData("proveedor", conexion);
+        meta = new MetaData("tipo", conexion);
     }
 
     @Test
     void getColumNames() {
-        String[] expect = {"id", "referencia", "nombre"};
+        String[] expect = {"id", "id_tipo", "nombre", "esamarre"};
         assertArrayEquals(expect, meta.getColumNames());
     }
 
     @Test
     void getColumTypes() {
-        String[] expect = {"INTEGER", "TEXT", "TEXT"};
+        String[] expect = {"INTEGER", "INTEGER", "TEXT", "TEXT"};
         assertArrayEquals(expect, meta.getColumTypes());
     }
 
     @Test
     void getColumCont() {
-        assertEquals(3, meta.getColumCont());
+        int expect = 4;
+        assertEquals(expect, meta.getColumCount());
     }
 }

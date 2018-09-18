@@ -34,8 +34,8 @@ class ConexionTest {
         String[] nombres = new String[5];
         String[] expec = {"Proveedor 1", "Proveedor 2", "Proveedor 3", "Proveedor 4", "Proveedor 5"};
         try {
-            int j=0;
             int colum_count = result.getMetaData().getColumnCount();
+            int j = 0;
             while(result.next())
                 for(int i = 0; i<colum_count; i++)
                     nombres[j++] = result.getString(i+1);
