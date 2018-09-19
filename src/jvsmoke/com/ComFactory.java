@@ -58,4 +58,18 @@ public class ComFactory {
         for(Component aCom : com) panelCom.add(aCom);
         return panelCom;
     }
+
+    /**
+     * Propociona un TextFielCom con texto no numérico y sin título que haga de label.
+     * @param bounds rectangulo que forma las dimensiones del componente en el Frame.
+     * @param onlynumber combierte a TextFieldCom para texto solo numérico.
+     * @param enabled activar o desactivar el TextFielCom.
+     * @return TextFielCom con texto solo numérico.
+     */
+    public static TextFieldCom TextFieldCom(@NotNull Rectangle bounds, String titulo, boolean onlynumber, boolean enabled) {
+        TextFieldCom tfc = new TextFieldCom(titulo, onlynumber);
+        tfc.setBounds(bounds.getBounds());
+        tfc.setEnabled(enabled);
+        return tfc;
+    }
 }
