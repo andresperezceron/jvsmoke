@@ -11,7 +11,7 @@ class MetaDataTest {
     private MetaData meta;
 
     private MetaDataTest() {
-        JvsConfig.SQLITE3_STR_CONEXION  = "jdbc:sqlite:D:/Programacion/Sqlite/jvsmoketest.db";
+        JvsConfig.SQLITE3_STR_CONEXION  = "jdbc:sqlite:db/jvsmoketest.db";
         Conexion conexion = Singleton.getConexion();
         meta = new MetaData("tipo", conexion);
     }

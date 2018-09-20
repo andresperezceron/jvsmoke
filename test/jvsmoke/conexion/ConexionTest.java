@@ -13,7 +13,7 @@ class ConexionTest {
     private Conexion conexion;
 
     private ConexionTest() {
-        JvsConfig.SQLITE3_STR_CONEXION  = "jdbc:sqlite:D:/Programacion/Sqlite/jvsmoketest.db";
+        JvsConfig.SQLITE3_STR_CONEXION  = "jdbc:sqlite:db/jvsmoketest.db";
         conexion = Singleton.getConexion();
     }
 

@@ -3,7 +3,6 @@ package jvsmoke.com;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
-import javax.xml.soap.Text;
 import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -55,8 +54,6 @@ public class TextFieldCom extends JTextField {
      */
     public Object getValue() {
         String text = getText();
-        boolean isDescimal = false;
-
         if(onlyNumber) {
             if(text.indexOf(".") > 0)
                 return text.equals(titulo) ? null : Double.parseDouble(text);

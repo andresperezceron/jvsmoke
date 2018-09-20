@@ -14,7 +14,7 @@ class QueryBuilderTest {
     private QueryBuilder qb;
 
     private QueryBuilderTest() {
-        JvsConfig.SQLITE3_STR_CONEXION  = "jdbc:sqlite:D:/Programacion/Sqlite/jvsmoketest.db";
+        JvsConfig.SQLITE3_STR_CONEXION  = "jdbc:sqlite:db/jvsmoketest.db";
         Conexion conexion = Singleton.getConexion();
         MetaData meta = new MetaData("componente", conexion);
         qb = new QueryBuilder("componente", meta.getColumNames());

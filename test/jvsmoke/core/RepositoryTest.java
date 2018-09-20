@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RepositoryTest {
     private RepositoryTest() {
-        JvsConfig.SQLITE3_STR_CONEXION  = "jdbc:sqlite:D:/Programacion/Sqlite/jvsmoketest.db";
+        JvsConfig.SQLITE3_STR_CONEXION  = "jdbc:sqlite:db/jvsmoketest.db";
     }
 
     @Test
