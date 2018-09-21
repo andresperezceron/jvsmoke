@@ -8,13 +8,13 @@ import java.awt.*;
 /**
  * Factoria de componentes JSwing y Com (heredean de JSwing), listos para ser añandidos al JFrame.
  * Para ulilizar esta Factoria se han de quitar los layout del JFrame.
- * Todos sus metodos son estaticos.
+ * Todos sus metodos son estáticos.
  */
 public class ComFactory {
 
     /**
-     * Proporciona un JButton con la imagen de fondo y se le agrega Tooltip.
-     * @param bounds rectangulo que forma las dimensiones del componente en el Frame.
+     * Proporciona un JButton con la imagen de fondo y con Tooltip.
+     * @param bounds rectángulo que forma las dimensiones del componente en el JFrame.
      * @param ruta_img ruta de del archivo .png
      * @param tooltip mensaje que aperecerá en el tooltip; para sin tooltip pasarle cadena vacía.
      * @param enabled activar o desactivar el JButton.
@@ -31,7 +31,7 @@ public class ComFactory {
 
     /**
      * Se ulitiza el componente JLabel para poner cualquier imagen en el JFrame.
-     * @param bounds rectangulo que forma las dimensiones del componente en el Frame.
+     * @param bounds rectángulo que forma las dimensiones del componente en el JFrame.
      * @param ruta_img ruta de del archivo .png
      * @return JLabel con la imagen de fondo y con el borde negro.
      */
@@ -60,11 +60,12 @@ public class ComFactory {
     }
 
     /**
-     * Propociona un TextFielCom con texto no numérico y sin título que haga de label.
+     * Propociona un TextFielCom con las posibilidades de utilizar titulo de label y que sea solo numérico.
      * @param bounds rectangulo que forma las dimensiones del componente en el Frame.
+     * @param titulo título activa la función titulo-label; para sin función título pasarle cadena en blanco.
      * @param onlynumber combierte a TextFieldCom para texto solo numérico.
      * @param enabled activar o desactivar el TextFielCom.
-     * @return TextFielCom con texto solo numérico.
+     * @return TextFielCom listo para ser agregado al JFrame.
      */
     public static TextFieldCom TextFieldCom(@NotNull Rectangle bounds, String titulo, boolean onlynumber, boolean enabled) {
         TextFieldCom tfc = new TextFieldCom(titulo, onlynumber);

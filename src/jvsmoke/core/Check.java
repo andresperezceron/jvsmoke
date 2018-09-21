@@ -11,5 +11,7 @@ public interface Check {
      * Metedo destinado a verificar los datos antes de su inserción o actualización.
      * @return nos indica si los datos son correctos antes de ser procesados.
      */
-    boolean finalCheck();
+    boolean finalCheckToInsert();
+
+    boolean finalCheckToUpdate();
 }

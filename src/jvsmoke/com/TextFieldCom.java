@@ -24,7 +24,6 @@ public class TextFieldCom extends JTextField {
     private Color background = new Color(254, 249, 231);
     private Color foreground = Color.GRAY;
 
-
     /**
      * Contructor.
      * @param titulo texto para el TextFielCom que hará de label del mismo.
@@ -34,6 +33,7 @@ public class TextFieldCom extends JTextField {
         this.titulo = titulo;
         this.onlyNumber = onlyNumer;
         auxFont = this.getFont();
+        if(onlyNumer) addKeyListener(new eKeyOnlyNumber());
         if(!titulo.equals("")) {
             setText(titulo);
             setFont(font);
@@ -41,8 +41,6 @@ public class TextFieldCom extends JTextField {
             setForeground(foreground);
             addFocusListener(new eTitulo());
         }
-        if(onlyNumer)
-            addKeyListener(new eKeyOnlyNumber());
     }
 
     /**
@@ -54,14 +52,24 @@ public class TextFieldCom extends JTextField {
      */
     public Object getValue() {
         String text = getText();
-        if(onlyNumber) {
-            if(text.indexOf(".") > 0)
-                return text.equals(titulo) ? null : Double.parseDouble(text);
+        boolean isDecimal = text.indexOf(".") > 0;
+        if(onlyNumber)
+            if(isDecimal) return text.equals(titulo) ? null : Double.parseDouble(text);
             else return text.equals(titulo) ? null : Integer.parseInt(text);
-        }
-        else if(text.equals(titulo))
-            return "";
+        else if(text.equals(titulo)) return "";
         else return text;
+    }
+
+    /**
+     * Metodo para reiniciar los valores en TextFieldCom.
+     */
+    public void reset() {
+        if(!titulo.equals("")) {
+            setText(titulo);
+            setFont(font);
+            setBackground(background);
+            setForeground(foreground);
+        }else setText("");
     }
 
     /**
