@@ -50,7 +50,6 @@ public abstract class Model implements Check {
 
     /**
      * Ofrece el repository ya instanciado.
-     * Es el método que se encarga de pasarle los modelos a los controladores.
      * @return Repository
      */
     protected Repository getRepository() {
@@ -69,6 +68,12 @@ public abstract class Model implements Check {
         return (int) conexion.exeSimpleQuery(query);
     }
 
+    /**
+     * Indica si existe o no el registro indicado el parámetro strPriOrUniKey.
+     * @param strPriOrUniKey nombre de la Primary key o Unique key.
+     * @param value value el valor de strPriOrUniKey.
+     * @return true si existe el registro.
+     */
     protected boolean exist(String strPriOrUniKey, Object value) {
         String query = "Select count(*) from " + tabla + " where " + strPriOrUniKey + "='" + value + "';";
         return (int) conexion.exeSimpleQuery(query) > 0;
@@ -77,7 +82,7 @@ public abstract class Model implements Check {
     /**
      * Proporcion un "atajo" para obtener registros de la base de datos utilizando tanto claves uniques como primary.
      * @param strPriOrUniKey nombre de la Primary key o Unique key.
-     * @param value el valor de strPriOrUniKey; es tipo Object para poder utilizar varios tipos de datos primitivos.
+     * @param value el valor de strPriOrUniKey.
      * @return registro existente en la base de datos. (Object[]).
      */
     protected Object[] getBy(String strPriOrUniKey, Object value) {
