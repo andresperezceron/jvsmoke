@@ -9,9 +9,9 @@ import java.sql.SQLException;
 /**
  * Clase Base para todos los Modelos.
  * Implementa la interfaz Check, de hay que sea abstracta para obligar a que todas las
- * clases hijas la interpreten. Además posee un Repository, que es el que tomarán los
- * controladores al instanciarlos. Tiene conexión con la base de datos para poder ralizar
- * todos los calculos de negocio. Para ello ofrece los metodos de querySimple para las
+ * clases hijas a que la interpreten. Además posee un Repository, que es el que tomarán
+ * los controladores al instanciarlos. Tiene conexión con la base de datos para poder
+ * ralizar todos los cálculos de negocio. Para ello ofrece los metodos de querySimple para las
  * consultas monoregistro y query para las consultas multiregistro. Por último decir que
  * posee varios metodos que harán de atajos a la hora de crear consultas en los modelos.
  */
