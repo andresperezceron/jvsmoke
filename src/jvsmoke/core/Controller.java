@@ -1,7 +1,6 @@
 package jvsmoke.core;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
@@ -52,28 +51,8 @@ public abstract class Controller {
     protected abstract void render();
 
     /**
-     * @param ACTION_CONTROLLER
-     * @return
-     */
-    protected ActionListener eActionContoller(int ACTION_CONTROLLER){
-        return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                executeAction(ACTION_CONTROLLER);
-            }
-        };
-    }
-
-    /**
-     * @param ctrl
-     * @return
-     */
-    protected ActionListener eRedirect(Controller ctrl){
-        return e -> redirect(ctrl);
-    }
-
-    /**
-     * @param ACTION_CONTROLLER
+     * Realiza la acción indicada por el parámetro ACTION_CONTROLLER.
+     * @param ACTION_CONTROLLER el tipo de acción a realizar con el controlador.
      */
     public void executeAction(int ACTION_CONTROLLER) {
         switch(ACTION_CONTROLLER) {
@@ -86,10 +65,47 @@ public abstract class Controller {
     }
 
     /**
-     * @param ctrl
+     * Procedimiento para redireccionar a otra view. Es el procedimiento al que hace llamada eRedirect.
+     * Cierra la view actual e inicializa controller (ACTION_INDEX) que levanta la nueva view.
+     * @param ctrl contoller al que queremos redireccionar.
      */
     public void redirect(Controller ctrl) {
         view.dispose();
         ctrl.executeAction(ACTION_INDEX);
     }
+
+    /**
+     * Este evento es el que asignaremos normalmente a JButtons para realizar las operaciones del CRUD.
+     * @param ACTION_CONTROLLER el tipo de acción a realizar con el controlador.
+     * @return Listener de tipo Action.
+     */
+    protected ActionListener eActionContoller(int ACTION_CONTROLLER){
+        return e -> executeAction(ACTION_CONTROLLER);
+    }
+
+    /**
+     * Evento utilizado para redireccionar utilizando el método redirect(Controller).
+     * @param ctrl controller ya instaciado a que queremos redireccionar.
+     * @return Listener de tipo Action.
+     */
+    protected ActionListener eRedirect(Controller ctrl){
+        return e -> redirect(ctrl);
+    }
+
+    /**
+     * Proporciona la View que le pasamos a Controller.
+     * @return JFrame View que controlamos desde Controller.
+     */
+    public JFrame getView() {
+        return view;
+    }
+
+    /**
+     * Proporciona el Model que le pasamos a Controller.
+     * @return Model que controlamos desde Controller.
+     */
+    public Model getModel() {
+        return model;
+    }
+
 }
