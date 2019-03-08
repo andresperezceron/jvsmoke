@@ -1,6 +1,7 @@
 package jvsmoke.com;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Proporciona un JPanel sin Layout y además añade la propiedad enabledAllCom, que
@@ -9,10 +10,10 @@ import javax.swing.*;
 public class PanelCom extends JPanel {
 
     /**
-     * Conturctor.
+     * Contructor.
      */
-    public PanelCom() {
-        this.setLayout(null);
+    public PanelCom(LayoutManager layout) {
+        this.setLayout(layout);
     }
 
     /**

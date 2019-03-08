@@ -3,6 +3,7 @@ package jvsmoke.com;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
+import javax.swing.table.TableRowSorter;
 import java.awt.*;
 
 /**
@@ -29,6 +30,21 @@ public class ComFactory {
         return jButton;
     }
 
+    public static JButton Button(@NotNull Rectangle bounds, String titulo, boolean enabled) {
+        JButton b = new JButton(titulo);
+        b.setBounds(bounds);
+        b.setEnabled(enabled);
+        return b;
+    }
+
+    public static ComboBoxCom Combo(@NotNull Rectangle bounds, @NotNull String titulo, boolean enabled) {
+        ComboBoxCom cb = (titulo.equals("")) ? new ComboBoxCom() : new ComboBoxCom(titulo);
+        cb.setFont(new Font("Dialog", Font.PLAIN, 12));
+        cb.setBounds(bounds.getBounds());
+        cb.setEnabled(enabled);
+        return cb;
+    }
+
     /**
      * Se ulitiza el componente JLabel para poner cualquier imagen en el JFrame.
      * @param bounds rectángulo que forma las dimensiones del componente en el JFrame.
@@ -43,6 +59,21 @@ public class ComFactory {
     }
 
     /**
+     * Proporciona un JLabel.
+     * @param bounds rectángulo que forma las dimensiones del componente en el JFrame.
+     * @param titulo texto que aparecera en el JLabel.
+     * @param font fuente del texto del JLabel.
+     * @return JLabel listo para se añadido al JFrame.
+     */
+    public static JLabel Label(@NotNull Rectangle bounds, String titulo, Font font) {
+        JLabel label = new JLabel(titulo);
+        label.setBounds(bounds);
+        label.setText(titulo);
+        label.setFont(font);
+        return label;
+    }
+
+    /**
      * Proporciona un PanelCom.
      * @param bounds rectangulo que forma las dimensiones del componente en el Frame.
      * @param titulo título para el borde; para sin título pasarle cadena en blanco.
@@ -51,12 +82,28 @@ public class ComFactory {
      * @return PanelCom listo para ser añadido al JFrame.
      */
     public static PanelCom Panel(@NotNull Rectangle bounds, String titulo, @NotNull Component[] com, boolean enabled) {
-        PanelCom panelCom = new PanelCom();
+        PanelCom panelCom = new PanelCom(null);
         panelCom.setBounds(bounds.getBounds());
         panelCom.setBorder(BorderFactory.createTitledBorder(titulo));
         panelCom.setEnabled(enabled);
         for(Component aCom : com) panelCom.add(aCom);
         return panelCom;
+    }
+
+    public static PanelCom Panel(@NotNull Rectangle bounds, String titulo, TableCom tabla, boolean enabled) {
+        PanelCom p = new PanelCom(new BorderLayout());
+        p.setLayout(new BorderLayout());
+        p.setBounds(bounds.getBounds());
+        p.setBorder(BorderFactory.createTitledBorder(titulo));
+        p.setEnabled(enabled);
+        p.add(new JScrollPane(tabla), BorderLayout.CENTER);
+        return p;
+    }
+
+    public static TableCom Table(String[] nomColum, int[] tamColum) {
+        TableCom t = new TableCom(nomColum, tamColum);
+        t.setRowSorter(new TableRowSorter<>(t.getModel()));
+        return  t;
     }
 
     /**

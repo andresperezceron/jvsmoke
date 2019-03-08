@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 /**
  * Controlador base.
- * Proporciona dos eventos de tipo acctionListener, uno para ejecutar las acciones: create, update y delete,
- * y el segundo para redireccionar a otra view y publica los metodos executeAction y redirect.
+ * Proporciona dos eventos de tipo actionListener, uno para ejecutar las acciones: create, update y delete,
+ * y el segundo para redireccionar a otra view. Además publica los metodos executeAction y redirect.
  * Se pueden instanciar controladores pasando null como modelo o lo que lo mismo se pueden instanciar controladores
  * sin modelos, a igual que se pueden pasar vistas sin nececidad de que implementen la interfaz EventViewManager.
  */
@@ -15,7 +15,7 @@ public abstract class Controller {
     protected final int ACTION_CREATE = 2;
     protected final int ACTION_UPDATE = 3;
     protected final int ACTION_DELETE = 4;
-    protected final int ACTION_RENDER = 5;
+    public static final int ACTION_RENDER = 5;
 
     private JFrame view;
     private Model model;

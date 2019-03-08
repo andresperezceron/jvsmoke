@@ -3,6 +3,7 @@ package jvsmoke.com;
 import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 
 /**
  * ComboBoxCom es un JComboBox pero que se le añaden los metodos load(Resultset) y setSelectedIndexByItem(Obj item).
@@ -27,7 +28,7 @@ public class ComboBoxCom extends JComboBox<Object> {
 
     /**
      * Carga ComboBoxCom con los datos que contiene el ResultSet.
-     * ComboBoxCom es capaz de cargar ResultSet que contengan más de una fila.
+     * ComboBoxCom es capaz de cargar un ResultSet que contengan más de una fila.
      * @param resultset ResultSet obtenido tras la consulta sql.
      */
     public void load(ResultSet resultset) {
@@ -43,7 +44,6 @@ public class ComboBoxCom extends JComboBox<Object> {
             }
             resultset.close();
         } catch (SQLException e) { e.printStackTrace(); }
-
     }
 
     /**

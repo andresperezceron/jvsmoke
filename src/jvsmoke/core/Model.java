@@ -80,7 +80,7 @@ public abstract class Model implements Check {
     }
 
     /**
-     * Proporcion un "atajo" para obtener registros de la base de datos utilizando tanto claves uniques como primary.
+     * Proporciona un "atajo" para obtener registros de la base de datos utilizando tanto claves uniques como primary.
      * @param strPriOrUniKey nombre de la Primary key o Unique key.
      * @param value el valor de strPriOrUniKey.
      * @return registro existente en la base de datos. (Object[]).
